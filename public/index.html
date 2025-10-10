@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#2196f3">
+
+  <title>Mi Primera PWA</title>
+</head>
+<body>
+  <h1>🧠 Mi primera PWA</h1>
+  <p>Prueba del Pilar 1: Service Worker</p>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker
+        .register("sw.js")
+        .then((reg) => console.log(" Service Worker registrado:", reg))
+        .catch((err) => console.error(" Error al registrar SW:", err));
+    } else {
+      console.log("⚠️ Tu navegador no soporta Service Workers.");
+    }
+  </script>
+</body>
+</html>

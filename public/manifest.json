@@ -1,0 +1,21 @@
+{
+  "name": "Mi Primera PWA",
+  "short_name": "MiPWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2196f3",
+  "description": "Una app de ejemplo para aprender los pilares de una PWA.",
+  "icons": [
+    {
+      "src": "icons/cars.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "icons/matte.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
