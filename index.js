@@ -200,6 +200,11 @@ app.post('/productos',(req,res) => {
        
     
 
+
+});
+
+app.get('/', (req, res) => {
+  res.redirect('/ventas');
 });
 
  

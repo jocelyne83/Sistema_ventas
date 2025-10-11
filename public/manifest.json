@@ -1,7 +1,7 @@
 {
-  "name": "Mi Primera PWA",
+  "name": "Primera PWA sistema de punto de ventas",
   "short_name": "MiPWA",
-  "start_url": "/",
+  "start_url": "/ventas",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#2196f3",

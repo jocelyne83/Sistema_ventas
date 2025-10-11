@@ -5,6 +5,8 @@
     <title>Venta de Productos</title>
     <link rel="stylesheet" href="/style.css">
     <script defer src="/script.js"></script>
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#4CAF50">
 </head>
 <body>
     <h1>Sistema de punto de ventas</h1>
@@ -26,5 +28,16 @@
     </form>
 
     <div id="resultado" style="margin-top:20px; font-weight: bold;"></div>
+
+    <script>
+        // Registrar el Service Worker
+        if ('serviceWorker' in navigator) {
+           window.addEventListener('load', () => {
+             navigator.serviceWorker.register('/sw.js')
+                .then(reg => console.log('Service Worker registrado:', reg.scope))
+                .catch(err => console.log('Error al registrar SW:', err));
+            });
+        }
+  </script>
 </body>
 </html>
