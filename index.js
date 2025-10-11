@@ -203,11 +203,7 @@ app.post('/productos',(req,res) => {
 
 });
 
-app.get('/', (req, res) => {
-  res.redirect('/ventas');
-});
 
- 
 
 app.use((req, res) => {
     //cualquier ruta no manejada 

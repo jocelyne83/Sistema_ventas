@@ -3,14 +3,12 @@
 
 
 // Nombre del caché 
-const CACHE_NAME = "pwa-cache-v2";
+const CACHE_NAME = "pwa-cache-v3";
 
 // Archivos que se guardan en el caché
 const archivosCache = [
   "/",
-  "/ventas",
-  "/style.css",
-  "/script.js",
+  "/index.html",
   "/manifest.json",
   "/icons/matte.png",
   "/icons/cars.png"
