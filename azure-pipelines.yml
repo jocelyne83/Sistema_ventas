@@ -1,5 +1,5 @@
 trigger:
-  - main   # Se ejecuta cada vez que subas cambios a la rama main
+  - main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -7,15 +7,27 @@ pool:
 steps:
   - task: NodeTool@0
     inputs:
-      versionSpec: '18.x'
+      versionSpec: '22.x'
     displayName: 'Instalar Node.js'
 
   - script: |
       npm install
-    displayName: 'Instalar dependencias'
+      npm start
+    displayName: 'Instalar dependencias y construir la aplicación'
 
-  - script: |
-      npm run build
-    displayName: 'Construir aplicación'
-    continueOnError: true   # Si tu proyecto no tiene build, no detiene el pipeline
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(System.DefaultWorkingDirectory)'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/app.zip'
+      replaceExistingArchive: true
+    displayName: 'Empaquetar aplicación'
 
+  - task: AzureWebApp@1
+    inputs:
+      azureSubscription: 'Azure-devops_sistemaventas'    
+      appType: 'webApp'                       
+      appName: 'sistema-ventas'                        
+      package: '$(Build.ArtifactStagingDirectory)/app.zip'
+    displayName: 'Desplegar a Azure Web App'
