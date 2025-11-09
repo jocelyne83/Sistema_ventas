@@ -42,7 +42,7 @@ self.addEventListener("activate", (event) => {
   );
 });
 
-//  FETCH → Interceptar peticiones y responder desde caché o red
+//  FETCH 
 self.addEventListener("fetch", (event) => {
   event.respondWith(
     caches.match(event.request).then((respuestaCache) => {
